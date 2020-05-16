@@ -1,4 +1,4 @@
-### anchor-link-demo-multipass
+### ual-anchor-reactjs-demo-multipass
 
 This demo is a developer focused example to help show how UAL (ual-reactjs-renderer) can be used to create a multi-wallet, multi-chain, multi-account, multi-device EOSIO applications. It was created using the create-react-app generic boilerplate and also includes ual-anchor, ual-ledger, and ual-scatter.
 
@@ -13,7 +13,7 @@ The demo will launch in your browser in a local server.
 
 You can also view this demo live at the following URL:
 
-https://greymass.github.io/anchor-link-demo-multipass/
+https://greymass.github.io/ual-anchor-reactjs-demo-multipass/
 
 #### Documentation
 
