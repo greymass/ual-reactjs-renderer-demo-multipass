@@ -45,6 +45,10 @@ class App extends Component {
   // React State Helper to update chainId while switching blockchains
   setChainId = (e, { value }) => this.setState({
     chainId: value
+  }, () => {
+    const searchParams = new URLSearchParams(window.location.search)
+    searchParams.set('chainId', value)
+    window.history.pushState(null, null, `?${searchParams.toString()}`)
   })
   render() {
     const {
