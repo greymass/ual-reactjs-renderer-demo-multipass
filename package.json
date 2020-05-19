@@ -1,6 +1,6 @@
 {
-  "name": "ual-anchor-reactjs-demo-multipass",
-  "homepage": "https://greymass.github.io/ual-anchor-reactjs-demo-multipass",
+  "name": "ual-reactjs-renderer-demo-multipass",
+  "homepage": "https://greymass.github.io/ual-reactjs-renderer-demo-multipass",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

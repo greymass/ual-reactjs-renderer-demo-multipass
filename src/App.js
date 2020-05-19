@@ -14,7 +14,7 @@ import blockchains from './assets/blockchains.json'
 import Main from './Main'
 
 // Define the app name for UAL
-const appName = 'ual-anchor-reactjs-demo-multipass'
+const appName = 'ual-reactjs-renderer-demo-multipass'
 
 class App extends Component {
   // Demo initialization code

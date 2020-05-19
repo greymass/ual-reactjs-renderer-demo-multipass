@@ -128,10 +128,10 @@ class App extends Component {
         style={{ paddingTop: '2em' }}
       >
         <Header attached="top" block size="huge">
-          ual-anchor-reactjs-demo-multipass
+          ual-reactjs-renderer-demo-multipass
           <Header.Subheader>
             <p>An UAL demo that allows multiple persistent logins from different wallets, blockchains, and accounts.</p>
-            <p>Source code: <a href="https://github.com/greymass/ual-anchor-reactjs-demo-multipass">https://github.com/greymass/ual-anchor-reactjs-demo-multipass</a></p>
+            <p>Source code: <a href="https://github.com/greymass/ual-reactjs-renderer-demo-multipass">https://github.com/greymass/ual-reactjs-renderer-demo-multipass</a></p>
           </Header.Subheader>
         </Header>
         <Segment attached padded>
