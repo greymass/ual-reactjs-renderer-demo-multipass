@@ -1,2 +1,0 @@
-(this["webpackJsonpual-anchor-reactjs-demo-multipass"]=this["webpackJsonpual-anchor-reactjs-demo-multipass"]||[]).push([[8],{976:function(a,t,e){"use strict";function s(a){a.languages.arff={comment:/%.*/,string:{pattern:/(["'])(?:\\.|(?!\1)[^\\\r\n])*\1/,greedy:!0},keyword:/@(?:attribute|data|end|relation)\b/i,number:/\b\d+(?:\.\d+)?\b/,punctuation:/[{},]/}}a.exports=s,s.displayName="arff",s.aliases=[]}}]);
-//# sourceMappingURL=react-syntax-highlighter_languages_refractor_arff.37d4f668.chunk.js.map

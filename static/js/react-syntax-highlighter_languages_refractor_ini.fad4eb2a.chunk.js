@@ -1,2 +1,0 @@
-(this["webpackJsonpual-anchor-reactjs-demo-multipass"]=this["webpackJsonpual-anchor-reactjs-demo-multipass"]||[]).push([[60],{1023:function(t,s,a){"use strict";function n(t){t.languages.ini={comment:/^[ \t]*[;#].*$/m,selector:/^[ \t]*\[.*?\]/m,constant:/^[ \t]*[^\s=]+?(?=[ \t]*=)/m,"attr-value":{pattern:/=.*/,inside:{punctuation:/^[=]/}}}}t.exports=n,n.displayName="ini",n.aliases=[]}}]);
-//# sourceMappingURL=react-syntax-highlighter_languages_refractor_ini.fad4eb2a.chunk.js.map
