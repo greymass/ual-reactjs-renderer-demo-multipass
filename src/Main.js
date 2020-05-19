@@ -20,6 +20,7 @@ class App extends Component {
       response: undefined,
       session: undefined,
       sessions: [],
+      transacting: false,
     }
   }
   componentDidUpdate(prevProps, prevState) {
@@ -36,9 +37,13 @@ class App extends Component {
   signTransaction = async () => {
     // Retrieve current session from state
     const { ual: { activeUser } } = this.props
-    try {
+    this.setState({
       // Reset our response state to clear any previous transaction data
-      this.setState({ response: undefined })
+      response: undefined,
+      // Set loading flag
+      transacting: true,
+    })
+    try {
       // Determine our auth from the current authenticator
       let actor;
       let permission;
@@ -52,7 +57,7 @@ class App extends Component {
         permission = activeUser.requestPermission
       }
       // Call transact on the session
-      const result = await activeUser.signTransaction({
+      const response = await activeUser.signTransaction({
         actions: [
           {
             account: 'eosio',
@@ -77,8 +82,10 @@ class App extends Component {
         expireSeconds: 120,
       })
       // Update application state with the results of the transaction
-      console.log(result)
-      this.setState({ response: result.transaction })
+      this.setState({
+        response,
+        transacting: false,
+      })
     } catch(e) {
       console.log(e)
     }
@@ -115,6 +122,7 @@ class App extends Component {
       session,
       sessions,
       response,
+      transacting,
     } = this.state
     const {
       chain,
@@ -153,10 +161,11 @@ class App extends Component {
           />
         </Segment>
         <Segment attached={response ? true : 'bottom'} padded>
-          <Header>Transact with anchor-link</Header>
+          <Header>Transact with UAL</Header>
           <Button
             content="Sign Test Transaction"
-            disabled={!activeUser}
+            disabled={!activeUser || transacting}
+            loading={transacting}
             icon="external"
             onClick={this.signTransaction}
             primary
