@@ -1,6 +1,5 @@
 // React and UI components for demo
 import React, { Component } from 'react'
-import { Button, Container, Header, Segment } from 'semantic-ui-react'
 
 // The required ual-reactjs-renderer with ual-anchor, ual-scatter, and ual-ledger
 import { Anchor } from 'ual-anchor'
@@ -31,7 +30,6 @@ class App extends Component {
   }
   getAuthenticators = (chainId) => {
     const [ chain ] = blockchains.filter((c) => c.chainId === chainId)
-    console.log(chainId, chain)
     const anchor = new Anchor([chain], {
       // Required: The name of the app requesting a session
       appName,

@@ -14,21 +14,12 @@ class App extends Component {
   // Demo initialization code
   constructor(props) {
     super(props)
-    console.log(props)
     // Set initial blank application state
     this.state = {
       response: undefined,
       session: undefined,
       sessions: [],
       transacting: false,
-    }
-  }
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.chainId !== prevState.chainId) {
-      console.log("chainId change")
-    }
-    if (this.props.ual.activeUser !== prevProps.ual.activeUser) {
-      console.log("activeUser change")
     }
   }
   addAccount = () => {
@@ -104,23 +95,10 @@ class App extends Component {
   removeSession = async (auth) => {
     const { ual: { logout } } = this.props
     logout();
-    // // Remove from local storage based on appName and auth
-    // await this.link.removeSession(this.props.appName, auth)
-    // // Remove from local application state
-    // const { session, sessions } = this.state
-    // // If this was the currently active account, remove the session
-    // if (session && session.auth.actor === auth.actor && session.auth.permission === auth.permission) {
-    //   this.setState({ session: undefined });
-    // }
-    // this.setState({
-    //   sessions: sessions.filter(s => !(s.actor === auth.actor && s.permission === auth.permission))
-    // })
   }
   render() {
     // Load state for rendering
     const {
-      session,
-      sessions,
       response,
       transacting,
     } = this.state
@@ -129,7 +107,6 @@ class App extends Component {
     } = this.props
     const { ual: { activeUser } } = this.props
     const { ual: { users } } = this.props
-    console.log(users)
     // Return the UI
     return (
       <Container
@@ -138,7 +115,7 @@ class App extends Component {
         <Header attached="top" block size="huge">
           ual-reactjs-renderer-demo-multipass
           <Header.Subheader>
-            <p>An UAL demo that allows multiple persistent logins from different wallets, blockchains, and accounts.</p>
+            <p>An UAL demo using the ual-reactjs-renderer that allows multiple persistent logins from different wallets, blockchains, and accounts.</p>
             <p>Source code: <a href="https://github.com/greymass/ual-reactjs-renderer-demo-multipass">https://github.com/greymass/ual-reactjs-renderer-demo-multipass</a></p>
           </Header.Subheader>
         </Header>

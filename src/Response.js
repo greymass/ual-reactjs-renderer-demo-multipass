@@ -57,7 +57,6 @@ class Transaction extends Component {
       },
     ]
     return tests.map((testCase) => {
-      // console.log(testCase, testCase.test(response), response)
       return {
         ...testCase,
         res: testCase.test(response),
@@ -73,9 +72,7 @@ class Transaction extends Component {
     return type.deserialize(buffer)
   }
   render() {
-    const { response } = this.props;
     const tests = this.testResponse()
-    // console.log(tests)
     return (
       <React.Fragment>
         <Segment style={{ overflowX: 'scroll' }}>
@@ -97,7 +94,6 @@ class Transaction extends Component {
             ))}
           </List>
         </Segment>
-
       </React.Fragment>
     );
   }
