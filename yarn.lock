@@ -2158,19 +2158,19 @@ alphanum-sort@^1.0.0:
   resolved "https://registry.yarnpkg.com/alphanum-sort/-/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
   integrity sha1-l6ERlkmyEa0zaR2fn0hqjsn74KM=
 
-anchor-link-browser-transport@^1.0.2:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/anchor-link-browser-transport/-/anchor-link-browser-transport-1.0.3.tgz#8b006dc93188d7f5b5c985f75c9849deb55f7ffa"
-  integrity sha512-lYm3zpK+IQfvigCJVHbv7gj3F8YdtdG1UoTs8QLTl+vilFUkFc3iq14zGrT69/Vg0dLES33J41Z7+15eJr6MRQ==
+anchor-link-browser-transport@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/anchor-link-browser-transport/-/anchor-link-browser-transport-2.0.0.tgz#def18717d182ff31a03e854bd415f048738a3e2b"
+  integrity sha512-uJnbgMPndNdJCc8lcehMHBODGA79jXoG2aT0apTIxqrfG8f5XfadSYGLP4ZigikaltHSJzum2rHS/2rjmYATmw==
   dependencies:
     qrcode "^1.4.4"
 
-anchor-link@^1.0.3:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/anchor-link/-/anchor-link-1.0.5.tgz#77ef123f1bf2b11c4965f37019a771e34471300a"
-  integrity sha512-ZiYOvKCnJaOo37lx5t6AKiTFAAx4xcHiEfbvV799RCMiyyULMyXNgwFV2Id3oOMGL2ucGW0qt/2NpvTRC9UVJg==
+anchor-link@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/anchor-link/-/anchor-link-2.0.0.tgz#94427cf12dd63432d9bd2713a3f3fb78b23d7a17"
+  integrity sha512-kZupmZrJX1unyyU/mfQ+suKrEY7BlKMRzrInkx+2biHNNejez/yzUh29cA34VPhZp4AwlW2Y+KlC2Y4lDFgcuw==
   dependencies:
-    eosio-signing-request "^1.1.5"
+    eosio-signing-request "^1.2.0"
     eosjs "^20.0.0"
     eosjs-ecc "^4.0.7"
     fetch-ponyfill "^6.1.0"
@@ -4438,7 +4438,7 @@ entities@^2.0.0:
   resolved "https://registry.yarnpkg.com/entities/-/entities-2.0.0.tgz#68d6084cab1b079767540d80e56a39b423e4abf4"
   integrity sha512-D9f7V0JSRwIxlRI2mjMqufDrRDnx8p+eEOz7aUM9SuvF8gsBzra0/6tbjl1m8eQHrZlYj6PxqE00hZ1SAIKPLw==
 
-eosio-signing-request@^1.1.5:
+eosio-signing-request@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/eosio-signing-request/-/eosio-signing-request-1.2.0.tgz#543922b4bfb60c5b07e350c5391e1599555fb0fa"
   integrity sha512-1sINQYrj5MkLg8MEPdBPOU/opJEZVGL4xF29ph1htvb6C6kpE+CZx5tEvBBwYWL5PK4T8VRZzhi8xSQg5j7sZw==
@@ -11368,13 +11368,13 @@ ua-parser-js@^0.7.18:
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.21.tgz#853cf9ce93f642f67174273cc34565ae6f308777"
   integrity sha512-+O8/qh/Qj8CgC6eYBVBykMrNtp5Gebn4dlGD/kKXVkJNDwyrAwSIqwz8CDf+tsAIWVycKcku6gIXJ0qwx/ZXaQ==
 
-ual-anchor@^0.3.2:
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/ual-anchor/-/ual-anchor-0.3.2.tgz#6f475c8aef676fe2b12b92ae1153b2708c5ed154"
-  integrity sha512-J6j0ot7fZW9WfM3sbBkkx50GRQQWRtBcdT0QJ7Egq7eTXgYo2FBmH4645yR7X1/3S2Pf/VkPaeBJffKNvnu84g==
+ual-anchor@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/ual-anchor/-/ual-anchor-0.4.0.tgz#cea4c14480aedad30a53f6c7ee32be04a4277a3f"
+  integrity sha512-YmAMXD3cOq+TY5X91lu6+qVNMiAvFEoCBmTKeTdCPaBAaudZ53fxXeYpDLC1c5SBpMwmFv3oUx7DoWE3PEMwrg==
   dependencies:
-    anchor-link "^1.0.3"
-    anchor-link-browser-transport "^1.0.2"
+    anchor-link "^2.0.0"
+    anchor-link-browser-transport "^2.0.0"
     elliptic "6.5.2"
     eosjs "^20.0.3"
     universal-authenticator-library "0.2.0"

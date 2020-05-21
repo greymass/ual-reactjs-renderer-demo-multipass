@@ -7,7 +7,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "ual-anchor": "^0.3.2",
+    "ual-anchor": "^0.4.0",
     "ual-ledger": "^0.2.0",
     "ual-reactjs-renderer": "^0.2.0",
     "ual-scatter": "^0.2.0",
