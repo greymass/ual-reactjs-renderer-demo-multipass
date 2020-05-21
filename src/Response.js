@@ -3,7 +3,7 @@ import { Header, List, Segment } from 'semantic-ui-react';
 import ReactJson from 'react-json-view';
 import { CodeBlock, monokai } from 'react-code-blocks'
 
-import { JsonRpc, Api, Serialize } from 'eosjs'
+import { Serialize } from 'eosjs'
 const transactionAbi = require('eosjs/src/transaction.abi.json')
 const transactionTypes: Map<string, Serialize.Type> = Serialize.getTypesFromAbi(Serialize.createInitialTypes(), transactionAbi)
 
@@ -18,20 +18,26 @@ class Transaction extends Component {
         data: (r) => r.wasBroadcast,
       },
       {
-        name: "Returns Signature",
-        desc: "The wallet has returned a signature in the response.",
+        name: "Signatures returned by signer",
+        desc: "The signer has returned signatures in its response.",
         test: (r) => !!(r.transaction.signatures && r.transaction.signatures.length >= 1),
         data: (r) => JSON.stringify(r.transaction.signatures),
       },
       {
-        name: "Returns Serialized Transaction",
-        desc: "The wallet has returned the serialized transaction appropriately.",
+        name: "Unserialized transaction returned by signer",
+        desc: "The signer has returned an unserialized transaction in its response.",
+        test: (r) => !!(r.transaction.transaction),
+        data: (r) => JSON.stringify(r.transaction.transaction),
+      },
+      {
+        name: "Serialized transaction returned by signer",
+        desc: "The signer has returned a serialized transaction in its response.",
         test: (r) => !!(r.transaction.serializedTransaction),
         data: (r) => JSON.stringify(r.transaction.serializedTransaction),
       },
       {
-        name: "Transaction can be deserialized",
-        desc: "The serialized transaction that the wallet returned successfully deserialized.",
+        name: "Serialized transaction successfully deserialized",
+        desc: "The serialized transaction the signer returned can be successfully deserialized.",
         test: (r) => {
           try {
             const tx = this.deserialize(r.transaction.serializedTransaction)
@@ -72,6 +78,7 @@ class Transaction extends Component {
     return type.deserialize(buffer)
   }
   render() {
+    const { response } = this.props;
     const tests = this.testResponse()
     return (
       <React.Fragment>
@@ -93,6 +100,58 @@ class Transaction extends Component {
               </List.Item>
             ))}
           </List>
+        </Segment>
+        <Segment style={{ background: 'rgb(39, 40, 34)' }}>
+          <Header dividing size="large" style={{ borderBottom: '1px solid white', color: 'white' }}>
+            Callback Payload
+          </Header>
+          <CodeBlock
+            text={`console.log(response.payload);`}
+            language={"javascript"}
+            showLineNumbers={false}
+            theme={monokai}
+            wrapLines
+          />
+          <ReactJson
+            displayDataTypes={false}
+            displayObjectSize={false}
+            enableClipboard={false}
+            iconStyle="square"
+            name={null}
+            src={response.payload}
+            style={{
+              background: 'rgb(39, 40, 34)',
+              marginTop: '1em',
+              overflow: 'scroll',
+            }}
+            theme="harmonic"
+          />
+        </Segment>
+        <Segment style={{ background: 'rgb(39, 40, 34)' }}>
+          <Header dividing size="large" style={{ borderBottom: '1px solid white', color: 'white' }}>
+            Signer
+          </Header>
+          <CodeBlock
+            text={`console.log(response.signer);`}
+            language={"javascript"}
+            showLineNumbers={false}
+            theme={monokai}
+            wrapLines
+          />
+          <ReactJson
+            displayDataTypes={false}
+            displayObjectSize={false}
+            enableClipboard={false}
+            iconStyle="square"
+            name={null}
+            src={response.signer}
+            style={{
+              background: 'rgb(39, 40, 34)',
+              marginTop: '1em',
+              overflow: 'scroll',
+            }}
+            theme="harmonic"
+          />
         </Segment>
       </React.Fragment>
     );
