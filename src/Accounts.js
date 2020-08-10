@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Table } from 'semantic-ui-react';
+import { Button, Popup, Table } from 'semantic-ui-react';
 
 class Debug extends Component {
   render() {
@@ -72,13 +72,32 @@ class Debug extends Component {
           <Table.Row>
             <Table.HeaderCell />
             <Table.HeaderCell colSpan="4" textAlign="center">
-              <Button
-                basic
-                content="Add Account"
-                fluid
-                onClick={this.props.addAccount}
-                primary
-              />
+              {(users.length > 0)
+                ? (
+                  <Popup
+                    content="UAL does not currently support using multiple accounts."
+                    fluid
+                    inverted
+                    position="top center"
+                    trigger={(
+                      <Button
+                        basic
+                        content="Add Account"
+                        fluid
+                      />
+                    )}
+                  />
+                )
+                : (
+                  <Button
+                    basic
+                    content="Add Account"
+                    fluid
+                    onClick={this.props.addAccount}
+                    primary
+                  />
+                )
+              }
             </Table.HeaderCell>
           </Table.Row>
         </Table.Footer>

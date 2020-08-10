@@ -32,13 +32,23 @@ class App extends Component {
     const [ chain ] = blockchains.filter((c) => c.chainId === chainId)
     const anchor = new Anchor([chain], {
       // Required: The name of the app requesting a session
+      //            This can be any string, preferably short, for wallets to display session information about.
       appName,
+      // Optional: Fuel by default is used to sign transactions for users with low resources.
+      //            This can be disabled by setting disableGreymassFuel to true.
+      // disableGreymassFuel: true,
+      // Optional: Enable the browser transport success/failure messages instead of handling yourself
+      // requestStatus: true
     })
     const ledger = new Ledger([chain])
     const scatter = new Scatter([chain], {
       appName
     })
-    return [anchor, ledger, scatter]
+    return [
+      anchor,
+      ledger,
+      scatter
+    ]
   }
   // React State Helper to update chainId while switching blockchains
   setChainId = (e, { value }) => this.setState({

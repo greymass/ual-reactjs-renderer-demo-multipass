@@ -5,6 +5,9 @@ import { Button, Container, Header, Segment } from 'semantic-ui-react'
 // The required ual includes
 import { withUAL } from 'ual-reactjs-renderer'
 
+// ecc library for validation (optional)
+import ecc from 'eosjs-ecc'
+
 // React components for this demo, not required
 import Accounts from './Accounts.js'
 import Blockchains from './Blockchains.js'
@@ -16,10 +19,35 @@ class App extends Component {
     super(props)
     // Set initial blank application state
     this.state = {
+      proofKey: undefined,
+      proofValid: undefined,
       response: undefined,
       session: undefined,
       sessions: [],
       transacting: false,
+    }
+  }
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    // If a new user record was loaded, check it's signature
+    const { activeUser } = this.props.ual
+    if (!prevProps.ual.activeUser && activeUser) {
+      const {
+        chainId,
+        signerKey,
+        signerProof,
+        signerRequest
+      } = activeUser
+      if (signerKey && signerProof && signerRequest) {
+        const message = Buffer.concat([
+          Buffer.from(chainId, 'hex'),
+          Buffer.from(signerRequest),
+          Buffer.alloc(32),
+        ])
+        // Verify and Recover data from the identity request
+        const proofValid = ecc.verify(signerProof, message, signerKey)
+        const proofKey = ecc.recover(signerProof, message)
+        this.setState({ proofValid, proofKey })
+      }
     }
   }
   addAccount = () => {
@@ -79,6 +107,10 @@ class App extends Component {
       })
     } catch(e) {
       console.log(e)
+      this.setState({
+        // Set loading flag
+        transacting: false,
+      })
     }
   }
   // React State Helper to update sessions while switching accounts
@@ -99,6 +131,8 @@ class App extends Component {
   render() {
     // Load state for rendering
     const {
+      proofKey,
+      proofValid,
       response,
       transacting,
     } = this.state
@@ -107,6 +141,10 @@ class App extends Component {
     } = this.props
     const { ual: { activeUser } } = this.props
     const { ual: { users } } = this.props
+    let signerProof;
+    if (proofValid) {
+      ({ signerProof } = activeUser);
+    }
     // Return the UI
     return (
       <Container
@@ -137,6 +175,17 @@ class App extends Component {
             users={users}
           />
         </Segment>
+        {(proofValid)
+          ? (
+            <Segment attached padded>
+              <Header>Identity Proof provided with Login</Header>
+              <p>Signed with Key: {proofKey}</p>
+              <p>Signed Proof: {signerProof}</p>
+              <p>Signature Valid: {proofValid ? 'Yes' : 'No'}</p>
+            </Segment>
+          )
+          : false
+        }
         <Segment attached={response ? true : 'bottom'} padded>
           <Header>Transact with UAL</Header>
           <Button
