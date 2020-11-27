@@ -39,6 +39,8 @@ class App extends Component {
       // disableGreymassFuel: true,
       // Optional: Enable the browser transport success/failure messages instead of handling yourself
       // requestStatus: true
+      // Optional: Set the callback service, which will default to https://cb.anchor.link
+      service: 'https://cb.anchor.link',
     })
     const ledger = new Ledger([chain])
     const scatter = new Scatter([chain], {
