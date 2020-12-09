@@ -5,9 +5,6 @@ import { Button, Container, Header, Segment } from 'semantic-ui-react'
 // The required ual includes
 import { withUAL } from 'ual-reactjs-renderer'
 
-// ecc library for validation (optional)
-import ecc from 'eosjs-ecc'
-
 // React components for this demo, not required
 import Accounts from './Accounts.js'
 import Blockchains from './Blockchains.js'
@@ -38,15 +35,12 @@ class App extends Component {
         signerRequest
       } = activeUser
       if (signerKey && signerProof && signerRequest) {
-        const message = Buffer.concat([
-          Buffer.from(chainId, 'hex'),
-          Buffer.from(signerRequest),
-          Buffer.alloc(32),
-        ])
-        // Verify and Recover data from the identity request
-        const proofValid = ecc.verify(signerProof, message, signerKey)
-        const proofKey = ecc.recover(signerProof, message)
-        this.setState({ proofValid, proofKey })
+        const proofKey = signerProof.recoverDigest(signerRequest.signingDigest(chainId))
+        const proofValid = proofKey.equals(signerKey)
+        this.setState({
+          proofValid,
+          proofKey: String(proofKey)
+        })
       }
     }
   }
@@ -179,8 +173,8 @@ class App extends Component {
           ? (
             <Segment attached padded>
               <Header>Identity Proof provided with Login</Header>
-              <p>Signed with Key: {proofKey}</p>
-              <p>Signed Proof: {signerProof}</p>
+              <p>Signed with Key: {String(proofKey)}</p>
+              <p>Signed Proof: {String(signerProof)}</p>
               <p>Signature Valid: {proofValid ? 'Yes' : 'No'}</p>
             </Segment>
           )

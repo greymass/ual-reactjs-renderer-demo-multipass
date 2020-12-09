@@ -1,15 +1,12 @@
 {
   "name": "ual-reactjs-renderer-demo-multipass",
   "version": "0.2.0",
+  "homepage": "https://greymass.github.io/ual-reactjs-renderer-demo-multipass",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "ual-anchor": "^0.3.2",
-    "ual-ledger": "^0.3.0",
-    "ual-reactjs-renderer": "^0.3.0",
-    "ual-scatter": "^0.3.0",
     "gh-pages": "^2.2.0",
     "react": "^16.13.1",
     "react-code-blocks": "^0.0.7",
@@ -17,7 +14,11 @@
     "react-json-view": "^1.19.1",
     "react-scripts": "3.4.1",
     "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^0.88.2"
+    "semantic-ui-react": "^0.88.2",
+    "ual-anchor": "^1.0.0-rc.1",
+    "ual-ledger": "^0.3.0",
+    "ual-reactjs-renderer": "^0.3.0",
+    "ual-scatter": "^0.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
