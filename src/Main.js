@@ -90,9 +90,11 @@ class App extends Component {
         // Optional: Whether anchor-link should broadcast this transaction
         //    For this demo, anchor-link will not broadcast the transaction after receiving it
         broadcast: false,
+        // Optional: Force using the last irreversible block for tapos
+        useLastIrreversible: true,
         // Optional: TAPOS values
-        blocksBehind: 3,
-        expireSeconds: 120,
+        // blocksBehind: 3,
+        // expireSeconds: 120,
       })
       // Update application state with the results of the transaction
       this.setState({
