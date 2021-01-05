@@ -106,7 +106,7 @@ class Transaction extends Component {
             Callback Payload
           </Header>
           <CodeBlock
-            text={`console.log(response.payload);`}
+            text={`console.log(response.transaction.payload);`}
             language={"javascript"}
             showLineNumbers={false}
             theme={monokai}
@@ -118,7 +118,7 @@ class Transaction extends Component {
             enableClipboard={false}
             iconStyle="square"
             name={null}
-            src={response.payload}
+            src={response.transaction.payload}
             style={{
               background: 'rgb(39, 40, 34)',
               marginTop: '1em',
@@ -132,7 +132,7 @@ class Transaction extends Component {
             Signer
           </Header>
           <CodeBlock
-            text={`console.log(response.signer);`}
+            text={`console.log(response.transaction.signer);`}
             language={"javascript"}
             showLineNumbers={false}
             theme={monokai}
@@ -144,7 +144,7 @@ class Transaction extends Component {
             enableClipboard={false}
             iconStyle="square"
             name={null}
-            src={response.signer}
+            src={JSON.parse(JSON.stringify(response.transaction.signer))}
             style={{
               background: 'rgb(39, 40, 34)',
               marginTop: '1em',
