@@ -138,7 +138,7 @@ class App extends Component {
     const { ual: { activeUser } } = this.props
     const { ual: { users } } = this.props
     let signerProof;
-    if (proofValid && activeUser.signerProof) {
+    if (proofValid && activeUser) {
       ({ signerProof } = activeUser);
     }
     // Return the UI
