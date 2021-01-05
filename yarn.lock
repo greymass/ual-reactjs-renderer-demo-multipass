@@ -11438,10 +11438,10 @@ ua-parser-js@^0.7.18:
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.21.tgz#853cf9ce93f642f67174273cc34565ae6f308777"
   integrity sha512-+O8/qh/Qj8CgC6eYBVBykMrNtp5Gebn4dlGD/kKXVkJNDwyrAwSIqwz8CDf+tsAIWVycKcku6gIXJ0qwx/ZXaQ==
 
-ual-anchor@^1.0.0-rc.1:
-  version "1.0.0-rc.1"
-  resolved "https://registry.yarnpkg.com/ual-anchor/-/ual-anchor-1.0.0-rc.1.tgz#1ea7f759364a0cacad27f17ddf2639b5f10bde92"
-  integrity sha512-gQz7qG7AwwAP8+WPD3/fKmpDD0fgVt/AbIAUF4U9dwXfzwnCrWZS2Z40bk5C4t7cE+ZpUJ0TNvHlraF0x1g8bw==
+ual-anchor@^1.0.0-rc.2:
+  version "1.0.0-rc.2"
+  resolved "https://registry.yarnpkg.com/ual-anchor/-/ual-anchor-1.0.0-rc.2.tgz#6e1808a2b3f33c29bc4e4a308999c72bee2dbda9"
+  integrity sha512-JE08c86p/02/tRZU6duXtqyu/sIbHVXYb02Sm+guzJI4I+COlGQfC2dyxvGinVA91r+isR33WvNZQscyoC2ovQ==
   dependencies:
     "@greymass/eosio" "^0.1.5"
     anchor-link "^3.0.0-rc.1"
