@@ -34,13 +34,15 @@ class App extends Component {
       // Required: The name of the app requesting a session
       //            This can be any string, preferably short, for wallets to display session information about.
       appName,
+      // Optional: Enablethe browser transport success/failure messages instead of handling yourself
+      requestStatus: true,
+      // Optional: Set the callback service, which will default to https://cb.anchor.link
+      service: 'https://cb.anchor.link',
       // Optional: Fuel by default is used to sign transactions for users with low resources.
       //            This can be disabled by setting disableGreymassFuel to true.
       // disableGreymassFuel: true,
-      // Optional: Enable the browser transport success/failure messages instead of handling yourself
-      // requestStatus: true
-      // Optional: Set the callback service, which will default to https://cb.anchor.link
-      service: 'https://cb.anchor.link',
+      // Optional: Specify an account name to use as a referral for potential Fuel revenue sharing
+      // fuelReferrer: 'jesta.x',
     })
     const ledger = new Ledger([chain])
     const scatter = new Scatter([chain], {
