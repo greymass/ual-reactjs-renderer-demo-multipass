@@ -30,19 +30,53 @@ class App extends Component {
   }
   getAuthenticators = (chainId) => {
     const [ chain ] = blockchains.filter((c) => c.chainId === chainId)
-    const anchor = new Anchor([chain], {
-      // Required: The name of the app requesting a session
-      //            This can be any string, preferably short, for wallets to display session information about.
+    /*
+      Example Chain Configuration:
+
+      {
+        "chainId": "aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906",
+        "name": "EOS",
+        "rpcEndpoints": [
+          {
+            "protocol": "https",
+            "host": "eos.greymass.com",
+            "port": 443
+          }
+        ]
+      }
+
+    */
+    const anchor = new Anchor([ chain ], {
+      // REQUIRED: The name of the app requesting a session
+      //    This can be any string, preferably short, for wallets to display session information about.
       appName,
-      // Optional: Enablethe browser transport success/failure messages instead of handling yourself
-      requestStatus: true,
-      // Optional: Set the callback service, which will default to https://cb.anchor.link
-      service: 'https://cb.anchor.link',
-      // Optional: Fuel by default is used to sign transactions for users with low resources.
-      //            This can be disabled by setting disableGreymassFuel to true.
-      // disableGreymassFuel: true,
-      // Optional: Specify an account name to use as a referral for potential Fuel revenue sharing
-      // fuelReferrer: 'jesta.x',
+      // ---
+      // OPTIONAL: An eosjs RPC client for ual-anchor to use
+      // rpc = new JsonRpc(`https://api.somewhere.com`),
+      // ---
+      // OPTIONAL: An @greymass/eosio API Client for ual-anchor to use
+      //    Defaults to: An APIClient instance utilizing the default API
+      // client = new APIClient({ provider }),
+      // ---
+      // OPTIONAL: Fuel by default is used to sign transactions for users with low resources.
+      //    Defaults to: false
+      // disableGreymassFuel: false,
+      // ---
+      // OPTIONAL: Specify an account name to use as a referral for potential Fuel revenue sharing
+      //    Defaults to: teamgreymass
+      // fuelReferrer: 'teamgreymass',
+      // ---
+      // OPTIONAL: Enable the browser transport success/failure messages instead of handling yourself
+      //    Defaults to: true
+      // requestStatus: true,
+      // ---
+      // OPTIONAL: Set the callback service
+      //    Defaults to: https://cb.anchor.link
+      // service: 'https://cb.anchor.link',
+      // ---
+      // OPTIONAL: Request that the identity proofs provided are verified by anchor-link
+      //    Defaults to: false
+      // verifyProofs: false,
     })
     const ledger = new Ledger([chain])
     const scatter = new Scatter([chain], {
