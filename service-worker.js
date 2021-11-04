@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/ual-reactjs-renderer-demo-multipass/precache-manifest.c9831e4041a13b3f82c4307aee03692e.js"
+  "/ual-reactjs-renderer-demo-multipass/precache-manifest.9e6e2a0f364c777ef6904ab85514e7bd.js"
 );
 
 self.addEventListener('message', (event) => {
