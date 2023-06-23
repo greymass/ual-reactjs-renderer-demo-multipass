@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 // The required ual-reactjs-renderer with ual-anchor, ual-scatter, and ual-ledger
 import { Anchor } from 'ual-anchor'
 import { Ledger } from 'ual-ledger'
-import { Scatter } from 'ual-scatter'
+// import { Scatter } from 'ual-scatter'
 import { UALProvider } from 'ual-reactjs-renderer'
 
 // React components for this demo, not required
@@ -22,7 +22,7 @@ class App extends Component {
     // Add the ability to retrieve the chainId from the URL
     const search = window.location.search
     const params = new URLSearchParams(search)
-    const chainId = params.get('chainId') || '0db13ab9b321c37c0ba8481cb4681c2788b622c3abfd1f12f0e5353d44ba6e72'
+    const chainId = params.get('chainId') || '1064487b3cd1a897ce03ae5b6a865651747e2e152090f99c1d19d44e01aea5a4'
     // Set initial application state with the default chainId
     this.state = {
       chainId,
@@ -79,13 +79,13 @@ class App extends Component {
       // verifyProofs: false,
     })
     const ledger = new Ledger([chain])
-    const scatter = new Scatter([chain], {
-      appName
-    })
+    // const scatter = new Scatter([chain], {
+    //   appName
+    // })
     return [
       anchor,
       ledger,
-      scatter
+    //   scatter
     ]
   }
   // React State Helper to update chainId while switching blockchains
